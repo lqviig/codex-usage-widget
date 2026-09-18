@@ -1,0 +1,16 @@
+# Runtime state and private account data
+work/
+outputs/usage-pet/backup_*/
+**/__pycache__/
+*.py[cod]
+.env
+.env.*
+deepseek_token.txt
+usage.json
+deepseek.json
+widget.json
+
+# System and editor files
+.DS_Store
+Thumbs.db
+.vscode/
