@@ -1,6 +1,7 @@
 # Codex Usage Widget
 
 一个常驻在 Windows 桌面的轻量悬浮窗，用于查看 Codex 的 5 小时及每周剩余额度、官方 Token 统计，以及可选的 DeepSeek 当日消费、Token 和请求次数。
+<img width="360" height="410" alt="image" src="https://github.com/user-attachments/assets/876427f2-2e6c-4c08-929e-3d55f194339f" />
 
 ## 功能
 
