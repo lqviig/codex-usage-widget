@@ -61,6 +61,10 @@ DeepSeek 令牌由使用者自行从自己的 DeepSeek 平台账户取得。本�
 - DeepSeek 脚本不扫描浏览器配置文件、不读取浏览器 LocalStorage，也不自动提取凭据。
 - DeepSeek 的用量端点并非面向开发者公开的稳定 API，字段或访问方式改变时，该区域可能不可用。
 
+## 踩坑记录
+
+开发与排障过程中实际踩到的坑及解决办法，按主题分组（DeepSeek 取数、PowerShell/WPF 界面、脚本与运维、设计取舍），见 [PITFALLS.md](PITFALLS.md)。
+
 ## 许可证
 
 本项目使用 [MIT License](LICENSE)。
