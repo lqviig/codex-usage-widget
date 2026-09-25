@@ -2,6 +2,7 @@
 $createdNew = $false
 $widgetMutex = [Threading.Mutex]::new($true, 'Local\CodexUsageWidget', [ref]$createdNew)
 if (-not $createdNew) { $widgetMutex.Dispose(); exit }
+$script:toggleEvent = [Threading.EventWaitHandle]::new($false, [Threading.EventResetMode]::ManualReset, 'Local\CodexUsageWidgetToggle')
 Add-Type -AssemblyName PresentationFramework
 . (Join-Path $PSScriptRoot 'DeepSeekPeriod.ps1')
 $ErrorActionPreference = 'Stop'
@@ -202,6 +203,7 @@ $window.FindName('Toggle').Add_Click({ Set-Collapsed (-not $script:collapsed) })
 $timer = [Windows.Threading.DispatcherTimer]::new()
 $timer.Interval = [TimeSpan]::FromMilliseconds(400)
 $timer.Add_Tick({
+ if ($script:toggleEvent.WaitOne(0)) { $window.Close(); return }
  Update-DeepSeekPeriod
  foreach ($key in @('codex', 'ds')) {
   $s = $script:state[$key]
@@ -222,7 +224,7 @@ $timer.Add_Tick({
   if ((Get-Date) -ge $s.next) { Start-Fetch $key }
  }
 })
-$window.Add_Closed({ $timer.Stop(); Save-Config })
+$window.Add_Closed({ $timer.Stop(); Save-Config; $script:toggleEvent.Dispose() })
 $window.Add_ContentRendered({
  Update-DeepSeekPeriod
  if ($PreviewCollapsed) { Set-Collapsed $true } else { Set-Collapsed $script:collapsed }

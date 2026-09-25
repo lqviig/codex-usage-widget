@@ -21,8 +21,9 @@
 ## 安装与启动
 
 1. 下载或克隆此仓库。
-2. 双击 [`启动用量条.cmd`](outputs/usage-pet/启动用量条.cmd) 启动。
-3. 如需自动启动，在 Windows“启动”文件夹中创建 `启动用量条.cmd` 的快捷方式。
+2. 双击 [`启动用量条.cmd`](outputs/usage-pet/启动用量条.cmd) 切换悬浮窗状态（打开 / 关闭）。
+3. 也可运行 [`切换用量悬浮窗.ps1`](outputs/usage-pet/切换用量悬浮窗.ps1)，或创建它的桌面快捷方式，作为桌面开关。
+4. 如需登录 Windows 后自动显示，在 Windows“启动”文件夹中创建 `启动用量条.cmd` 的快捷方式。
 
 右上角 `−` 折叠，`↻` 手动刷新，`×` 关闭。拖动窗口可改变位置。
 
@@ -53,6 +54,7 @@ DeepSeek 令牌由使用者自行从自己的 DeepSeek 平台账户取得。本�
 | `outputs/usage-pet/fetch_deepseek.py` | DeepSeek 今日用量读取 |
 | `outputs/usage-pet/DeepSeekPeriod.ps1` | 高峰 / 空闲时段判断 |
 | `outputs/usage-pet/启动用量条.cmd` | 手动启动入口 |
+| `outputs/usage-pet/切换用量悬浮窗.ps1` | 桌面开关：已打开时关闭，已关闭时打开 |
 | `outputs/usage-pet/WatchChatGPT.ps1` | 可选：检测 ChatGPT 启动后打开悬浮窗 |
 
 ## 安全说明
